@@ -46,11 +46,13 @@ $(document).ready(function() {
           }
         }).then(function(response) {
           var data = JSON.parse(response.data.replace(/'/g,"\""));
-          var tamanho = data['Tamanho']
-
+          var full_size = data['Tamanho Total']
+          var furcal_size = data['Tamamho Furcal']
+          var padrao_size = data['Tamanho Padrão']
+          
           var miliseconds = Date.now() - start;
           $(`#${fish} div.result`).css("background-color", "green");
-          $(`#${fish} div.result`).text(`${tamanho} cm`);
+          $(`#${fish} div.result`).text(`Full: ${full_size} cm - Furcal: ${furcal_size} - Padrão: ${padrao_size}`);
           $(`#${fish} div.time`).text(`${miliseconds} ms`);
         });
       });
